@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:work_y/Authentication/verify_code_w.dart';
+import 'package:work_y/widgets/verify_code.dart';
 // import 'package:login/verify_code_w.dart';
 
 class VerifyEmail extends StatefulWidget {

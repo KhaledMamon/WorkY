@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:work_y/widgets/dot_indicator.dart';
+import 'package:work_y/widgets/expert_tage.dart';
+import 'package:work_y/widgets/rate_tage.dart';
+import 'package:work_y/widgets/secure_tage.dart';
 import 'home.dart';
 
 class Onboarding extends StatefulWidget {
@@ -71,77 +75,9 @@ class _OnboardingState extends State<Onboarding> {
                             ),
                           ),
 
-                          // Positioned for spasific location
-                          Positioned(
-                            bottom: 22,
-                            right: 13,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 15,
-                              ),
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(210, 255, 255, 255),
-                                borderRadius: BorderRadius.circular(12),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withValues(alpha: 100),
-                                    blurRadius: 4,
-                                    offset: const Offset(0, 2),
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize
-                                    .min, // same size your content only
-                                children: [
-                                  Container(
-                                    width: 40,
-                                    height: 40,
-                                    padding: const EdgeInsets.all(4),
-                                    decoration: const BoxDecoration(
-                                      color: Color(0xFF3244E6),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: const Icon(
-                                      Icons.verified,
-                                      color: Colors.white,
-                                      size: 23,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: const [
-                                      Text(
-                                        'TOP RATED',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: Color.fromARGB(
-                                            255,
-                                            153,
-                                            153,
-                                            153,
-                                          ),
-                                          fontWeight: FontWeight.bold,
-                                          letterSpacing: 1.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Expert Verified',
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          color: Color(0xFF3244E6),
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          if (i == 0) ExpertVerified(),
+                          if (i == 1) SuccessRate(),
+                          if (i == 2) SecurePayments(),
                         ],
                       ),
 
@@ -157,13 +93,11 @@ class _OnboardingState extends State<Onboarding> {
                       ),
                       const SizedBox(height: 15),
                       Text(
-                        // (_data[i]['desc']!.length > 150)
-                        //     ? _data[i]['desc']!.substring(0, 30):
                         _data[i]['desc']!,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 18,
-                          color: Colors.grey,
+                          color: Color.fromARGB(255, 110, 110, 110),
                           height: 1.5,
                         ),
                       ),
@@ -176,7 +110,10 @@ class _OnboardingState extends State<Onboarding> {
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(_data.length, (index) => buildDot(index)),
+            children: List.generate(
+              _data.length,
+              (index) => DotIndicator(index: index, currentPage: _currentPage),
+            ),
           ),
 
           Padding(
@@ -200,7 +137,7 @@ class _OnboardingState extends State<Onboarding> {
                 // print(_currentPage);
                 if (_currentPage < 2) {
                   _controller.nextPage(
-                    duration: const Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.ease,
                   );
                 } else {
@@ -219,32 +156,46 @@ class _OnboardingState extends State<Onboarding> {
               ),
             ),
           ),
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              _currentPage == 2 ? "" : "Skip",
-              style: const TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.bold,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  if (_currentPage != 0) {
+                    _controller.previousPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.ease,
+                    );
+                  }
+                },
+                child: Text(
+                  _currentPage == 0 ? "" : "Back",
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-            ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => const Home()),
+                    (Route<dynamic> route) => false,
+                  );
+                },
+                child: Text(
+                  _currentPage == 2 ? "" : "Skip",
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           ),
+
           SizedBox(height: 25),
         ],
-      ),
-    );
-  }
-
-  Widget buildDot(int index) {
-    return Container(
-      height: 8,
-      width: _currentPage == index ? 30 : 15,
-      margin: const EdgeInsets.only(right: 5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: _currentPage == index
-            ? const Color(0xFF3244E6)
-            : Colors.grey.shade300,
       ),
     );
   }
