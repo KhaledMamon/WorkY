@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:work_y/splash.dart';
+import 'splash.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const WorkY());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WorkY extends StatelessWidget {
+  const WorkY({super.key});
 
   @override
   Widget build(BuildContext context) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Freelance App',
-          home: const Splash(),
-        );
-      
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Freelance App',
+      home: const Splash(),
+    );
   }
 }
