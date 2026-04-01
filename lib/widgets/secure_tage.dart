@@ -12,7 +12,7 @@ class SecurePayments extends StatelessWidget {
         alignment: Alignment(100, 50),
         padding: const EdgeInsets.only(
           left: 20,
-          right: 65,
+          right: 74,
           top: 13,
           bottom: 13,
         ),
@@ -21,7 +21,12 @@ class SecurePayments extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 100),
+              color: const Color.fromARGB(
+                255,
+                210,
+                210,
+                210,
+              ).withValues(alpha: 0.5),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),

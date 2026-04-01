@@ -15,7 +15,12 @@ class ExpertVerified extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 100),
+              color: const Color.fromARGB(
+                255,
+                210,
+                210,
+                210,
+              ).withValues(alpha: 0.5),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),

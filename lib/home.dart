@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:work_y/Authentication/login.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,9 +12,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFDADDE2),
+      backgroundColor: Color(0xFFE0E2E8),
       appBar: AppBar(
-        backgroundColor: Color(0xFFF5F6FA),
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1),
         leading: MaterialButton(
           onPressed: () {},
           child: ClipRRect(
@@ -33,28 +34,34 @@ class _HomeState extends State<Home> {
           ),
         ),
         actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => const Login()));
+            },
+            child: Text("Login"),
+          ),
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications_none)),
         ],
       ),
       body: ListView(
         padding: EdgeInsets.all(15),
         children: [
-          Expanded(
-            child: TextField(
-              onSubmitted: (value) {
-                // print("onSubmitted: $value");
-              },
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
-                ),
-                prefixIcon: const Icon(Icons.search),
-                hintText: "Search",
-                filled: true,
-                fillColor: Color(0xFFF5F6FA),
+          TextField(
+            onSubmitted: (value) {
+              // print("onSubmitted: $value");
+            },
+            keyboardType: TextInputType.name,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none,
               ),
+              prefixIcon: const Icon(Icons.search),
+              hintText: "Search",
+              filled: true,
+              fillColor: Color(0xFFF5F6FA),
             ),
           ),
         ],

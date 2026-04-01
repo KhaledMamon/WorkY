@@ -7,7 +7,7 @@ class SuccessRate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 91,
-      left: 16,
+      left: 18,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
         decoration: BoxDecoration(
@@ -16,11 +16,11 @@ class SuccessRate extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: const Color.fromARGB(
-                132,
-                99,
-                99,
-                99,
-              ).withValues(alpha: 100),
+                255,
+                210,
+                210,
+                210,
+              ).withValues(alpha: 0.5),
               blurRadius: 4,
               offset: const Offset(0, 4),
             ),
