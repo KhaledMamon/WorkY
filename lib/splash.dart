@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:work_y/onboarding.dart';
+import 'package:work_y/Onboarding/onboarding.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:work_y/Authentication/login.dart';
+import 'package:work_y/Profile/profile.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,7 +17,11 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(255, 255, 255, 1),
         leading: MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (context) => Profile()));
+          },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.network(

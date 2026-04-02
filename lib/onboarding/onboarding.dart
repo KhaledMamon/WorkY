@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:work_y/widgets/dot_indicator.dart';
-import 'package:work_y/widgets/expert_tage.dart';
-import 'package:work_y/widgets/rate_tage.dart';
-import 'package:work_y/widgets/secure_tage.dart';
-import 'home.dart';
+import 'package:work_y/Onboarding/onboarding_widget/dot_indicator.dart';
+import 'package:work_y/Onboarding/onboarding_widget/expert_tage.dart';
+import 'package:work_y/Onboarding/onboarding_widget/rate_tage.dart';
+import 'package:work_y/Onboarding/onboarding_widget/secure_tage.dart';
+import '../home.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
