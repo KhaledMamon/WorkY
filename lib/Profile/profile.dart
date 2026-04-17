@@ -9,7 +9,7 @@ import 'package:work_y/Profile/profile_widgets/quick_info_section.dart';
 import 'package:work_y/Profile/profile_widgets/skills_section.dart';
 import 'package:work_y/Profile/profile_widgets/top_rated_section.dart';
 import 'package:work_y/Profile/profile_widgets/floating_item.dart';
-import 'package:work_y/meligy/Setting.dart';
+import 'package:work_y/Setting/setting.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -41,11 +41,11 @@ class _ProfileState extends State<Profile> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings, color: Color(0xFF3244E6)),
+            icon: const Icon(Icons.edit, color: Color(0xFF3244E6)),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const SettingsPage()),
+                MaterialPageRoute(builder: (context) => const EditPage()),
               );
             },
           ),

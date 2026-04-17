@@ -31,7 +31,7 @@ class _LoginState extends State<Login> {
           Icon(Icons.error_outline, color: Colors.red, size: 16),
           SizedBox(width: 5),
           Text(
-            'please enter correct password',
+            'please enter password',
             style: TextStyle(
               color: Colors.red,
               fontSize: 13,
@@ -256,7 +256,7 @@ class _LoginState extends State<Login> {
 
                         helper: notvalid(password),
 
-                        hintText: "************",
+                        hintText: "********",
                       ),
                     ),
                   ),

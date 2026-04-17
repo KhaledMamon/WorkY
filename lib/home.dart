@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
                 context,
               ).push(MaterialPageRoute(builder: (context) => const Login()));
             },
-            child: Text("Login"),
+            child: Text("Login", style: TextStyle(color: Color(0xFF3244E6))),
           ),
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications_none)),
         ],

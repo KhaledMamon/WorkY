@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Skills extends StatelessWidget {
-   Skills({super.key});
+    Skills({super.key});
 final skills = [
     "React / Next.js",
     "TypeScript",
