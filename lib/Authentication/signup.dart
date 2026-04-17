@@ -291,7 +291,7 @@ class _SignUpState extends State<SignUp> {
                         ),
 
                         // notvalid(password),
-                        hintText: "************",
+                        hintText: "********",
                         helper: notvalid(password),
                       ),
                     ),
@@ -345,7 +345,7 @@ class _SignUpState extends State<SignUp> {
                         ),
 
                         // notvalid(password),
-                        hintText: "************",
+                        hintText: "********",
                         helper: notvalid(password),
                       ),
                     ),

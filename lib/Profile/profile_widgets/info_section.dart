@@ -41,7 +41,7 @@ class InfoSection extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 45),
+        const SizedBox(height: 15),
         const Text(
           "Ahmed El-Meligy",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
