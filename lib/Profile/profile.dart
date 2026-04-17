@@ -9,7 +9,8 @@ import 'package:work_y/Profile/profile_widgets/quick_info_section.dart';
 import 'package:work_y/Profile/profile_widgets/skills_section.dart';
 import 'package:work_y/Profile/profile_widgets/top_rated_section.dart';
 import 'package:work_y/Profile/profile_widgets/floating_item.dart';
-import 'package:work_y/meligy/Setting.dart';
+import 'package:work_y/meligy/setting2.dart';
+// import 'package:work_y/meligy/Setting.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
