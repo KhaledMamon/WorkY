@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:work_y/Authentication/login.dart';
 import 'package:work_y/Profile/profile.dart';
+import 'Job/job_details.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,7 +14,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFE0E2E8),
+      backgroundColor: Color(0xFFE7E8EB),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(255, 255, 255, 1),
         leading: MaterialButton(
@@ -68,6 +69,15 @@ class _HomeState extends State<Home> {
               filled: true,
               fillColor: Color(0xFFF5F6FA),
             ),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const JobDetails()),
+              );
+            },
+            child: Text('job details'),
           ),
         ],
       ),

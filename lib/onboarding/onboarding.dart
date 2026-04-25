@@ -3,7 +3,7 @@ import 'package:work_y/Onboarding/onboarding_widget/dot_indicator.dart';
 import 'package:work_y/Onboarding/onboarding_widget/expert_tage.dart';
 import 'package:work_y/Onboarding/onboarding_widget/rate_tage.dart';
 import 'package:work_y/Onboarding/onboarding_widget/secure_tage.dart';
-import '../home.dart';
+import 'package:work_y/Setup/role_selection.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -142,7 +142,9 @@ class _OnboardingState extends State<Onboarding> {
                   );
                 } else {
                   Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(
+                      builder: (context) => const RoleSelection(),
+                    ),
                     (Route<dynamic> route) => false,
                   );
                 }
@@ -179,7 +181,9 @@ class _OnboardingState extends State<Onboarding> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(
+                      builder: (context) => const RoleSelection(),
+                    ),
                     (Route<dynamic> route) => false,
                   );
                 },

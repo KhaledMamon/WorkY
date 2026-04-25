@@ -26,7 +26,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: Color(0xFFE0E2E8),
+      backgroundColor: Color(0xFFE7E8EB),
       appBar: AppBar(
         backgroundColor: const Color(0xFFF7F8FC),
         title: const Text(
