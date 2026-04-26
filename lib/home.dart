@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:work_y/Authentication/login.dart';
+import 'package:work_y/Chat/active_chat.dart';
+import 'package:work_y/Chat/messages.dart';
 import 'package:work_y/Job/post_job.dart';
 import 'package:work_y/Profile/profile.dart';
 import 'Job/job_details.dart';
@@ -27,7 +29,7 @@ class _HomeState extends State<Home> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.network(
-              'https://lh3.googleusercontent.com/aida-public/AB6AXuB7mcV6ZmQPQgVWA4IXxLOA2ftsEQaafSmpeBtD3U2by8HHet76tqcQ4oRb6bHPdtHF1HA7LYOH4Ypfkf73zCkHP3aLTZKA2VX1gxswB4pvB10kQK6utnuz8JE8CD0oiwr7L2Q8jQSZhqQIeS60s1yeQZYmNzClC0yiOxjEmXGtj1NhGkc0AhfDt9ObgVYjrs_yOdjT3Q5GExgo45gluIU8Q5-E8EyTp7LMtasIY7W3RNL2gwMlXxF4yBkeg5xQJ3PsVyP8mV8cvGqs',
+              'https://lh3.googleusercontent.com/aida-public/AB6AXuDDka4xNpbG1l6PvFRpm0lpsZ8xZHAJ0hQY2tDIAoUU7oiqbPi6lAYUXDeTr2nxqL1AbosnCgeRkTf8vwaJhz1PUzOgYL-qFcqrREIn2BH8n7Op3t2MvG3dfin5z4tHhxaq8BkG0q0G_BYEqUQBTChJoIdhYEmvbfWKXDIcBbfHg54iHlytLL2LVIRYKX_SPvLl4gYEG_qLKT1QIef82Tl4Ud45FaIKvs2K2kls4hU9fHPSdkpO1aZ9dH9isHE29f8DWhqXR54WF2Ab',
               fit: BoxFit.cover,
             ),
           ),
@@ -89,6 +91,17 @@ class _HomeState extends State<Home> {
               ).push(MaterialPageRoute(builder: (context) => const PostJob()));
             },
             child: Text('job Post'),
+          ),
+
+          SizedBox(height: 20),
+
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => const Messages()));
+            },
+            child: Text('Massages'),
           ),
         ],
       ),
