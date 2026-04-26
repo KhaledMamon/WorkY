@@ -461,7 +461,6 @@ class _ProviderSetupState extends State<ProviderSetup> {
             ),
             SizedBox(height: 8),
 
-            // ---- زر Continue ----
             SizedBox(
               width: double.infinity,
               height: 52,

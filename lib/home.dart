@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:work_y/Authentication/login.dart';
+import 'package:work_y/Job/post_job.dart';
 import 'package:work_y/Profile/profile.dart';
 import 'Job/job_details.dart';
 
@@ -78,6 +79,16 @@ class _HomeState extends State<Home> {
               );
             },
             child: Text('job details'),
+          ),
+          SizedBox(height: 20),
+
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => const PostJob()));
+            },
+            child: Text('job Post'),
           ),
         ],
       ),
