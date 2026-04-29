@@ -7,7 +7,7 @@ class VerifyCode extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 64,
-      width: 50,
+      width: 46,
       child: TextFormField(
         onChanged: (value) {
           if (value.length == 1) {

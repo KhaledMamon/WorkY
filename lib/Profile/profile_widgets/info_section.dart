@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:work_y/Chat/messages.dart';
 
 class InfoSection extends StatelessWidget {
   const InfoSection({super.key});
@@ -80,7 +81,11 @@ class InfoSection extends StatelessWidget {
           children: [
             Expanded(
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(
+                    context,
+                  ).push(MaterialPageRoute(builder: (context) => Messages()));
+                },
                 style: OutlinedButton.styleFrom(
                   shape: const StadiumBorder(),
                   side: const BorderSide(color: Color(0xFF3244E6)),

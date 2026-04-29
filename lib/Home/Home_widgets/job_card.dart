@@ -115,6 +115,7 @@ class JobCard extends StatelessWidget {
           const SizedBox(height: 14),
           SizedBox(
             width: double.infinity,
+            height: 40,
             child: ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(

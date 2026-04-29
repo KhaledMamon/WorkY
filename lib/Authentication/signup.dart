@@ -366,7 +366,7 @@ class _SignUpState extends State<SignUp> {
                       ),
 
                       Text(
-                        'I agree to the Terms and Privacy Policy.',
+                        'I agree to the Terms and Privacy \nPolicy.',
                         style: TextStyle(
                           fontSize: 14,
                           color: const Color.fromARGB(255, 39, 39, 39),

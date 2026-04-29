@@ -40,12 +40,14 @@ class _RoleSelectionState extends State<RoleSelection> {
 
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             children: [
+              const SizedBox(height: 15),
+
               const Text(
                 'Choose your pathway',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF1F2937),
@@ -82,7 +84,7 @@ class _RoleSelectionState extends State<RoleSelection> {
                     'Looking for work. Connect with high-value clients and build your professional legacy on your terms.',
                 actionText: 'FIND PROJECTS',
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
 
               ElevatedButton(
                 onPressed: selectedRole == 0
@@ -109,7 +111,7 @@ class _RoleSelectionState extends State<RoleSelection> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -161,7 +163,8 @@ class _RoleSelectionState extends State<RoleSelection> {
       },
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(35),
@@ -199,8 +202,6 @@ class _RoleSelectionState extends State<RoleSelection> {
                 ),
 
                 Container(
-                  width: 24,
-                  height: 24,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
@@ -211,8 +212,6 @@ class _RoleSelectionState extends State<RoleSelection> {
                   child: isSelected
                       ? Center(
                           child: Container(
-                            width: 12,
-                            height: 12,
                             decoration: BoxDecoration(
                               color: primaryColor,
                               shape: BoxShape.circle,
@@ -223,7 +222,7 @@ class _RoleSelectionState extends State<RoleSelection> {
                 ),
               ],
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 12),
             Text(
               title,
               style: const TextStyle(
@@ -232,7 +231,7 @@ class _RoleSelectionState extends State<RoleSelection> {
                 color: Color(0xFF1F2937),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 8),
             Text(
               subtitle,
               style: const TextStyle(
@@ -241,7 +240,7 @@ class _RoleSelectionState extends State<RoleSelection> {
                 height: 1.6,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 12),
             Row(
               children: [
                 Text(

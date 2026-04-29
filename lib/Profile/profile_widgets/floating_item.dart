@@ -25,7 +25,6 @@ class FloatingItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
         decoration: BoxDecoration(
           color: isSelected
               ? const Color(0xFF3244E6).withValues(alpha: 0.2)
