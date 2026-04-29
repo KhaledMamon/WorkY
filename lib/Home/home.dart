@@ -5,7 +5,6 @@ import 'package:work_y/Home/Home_widgets/post_list.dart';
 import 'package:work_y/Home/Home_widgets/top_recommend.dart';
 import 'package:work_y/Home/search.dart';
 import 'package:work_y/Job/post_job.dart';
-import 'package:work_y/Old/home2.dart';
 import 'package:work_y/Profile/profile.dart';
 import 'package:work_y/Profile/profile_widgets/floating_item.dart';
 
