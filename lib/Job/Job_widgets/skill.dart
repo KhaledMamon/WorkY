@@ -10,7 +10,7 @@ class SkillChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: const Color(0xFF4F46E5),
+        color: const Color(0xFF3244E6),
         borderRadius: BorderRadius.circular(30),
       ),
       child: Text(

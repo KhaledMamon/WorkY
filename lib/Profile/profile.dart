@@ -8,9 +8,8 @@ import 'package:work_y/Profile/profile_widgets/profile_container.dart';
 import 'package:work_y/Profile/profile_widgets/quick_info_section.dart';
 import 'package:work_y/Profile/profile_widgets/skills_section.dart';
 import 'package:work_y/Profile/profile_widgets/top_rated_section.dart';
-import 'package:work_y/Profile/profile_widgets/floating_item.dart';
 import 'package:work_y/Setting/setting.dart';
-// import 'package:work_y/meligy/Setting.dart';
+import 'package:work_y/Profile/manage_applications.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -20,8 +19,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +39,17 @@ class _ProfileState extends State<Profile> {
         ),
         actions: [
           IconButton(
+            icon: const Icon(Icons.manage_accounts, color: Color(0xFF3244E6)),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ManageApplications(),
+                ),
+              );
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.edit, color: Color(0xFF3244E6)),
             onPressed: () {
               Navigator.push(
@@ -51,63 +59,6 @@ class _ProfileState extends State<Profile> {
             },
           ),
         ],
-      ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.fromLTRB(33, 10, 0, 5),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
-                blurRadius: 10,
-                offset: const Offset(0, 5),
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              FloatingItem(
-                index: 0,
-                iconSelected: Icons.person,
-                iconUnselected: Icons.person_outline,
-                label: 'الملف الشخصي',
-                isSelected: _selectedIndex == 0,
-                onTap: () => setState(() => _selectedIndex = 0),
-                isProfile: true,
-              ),
-              FloatingItem(
-                index: 1,
-                iconSelected: Icons.chat_bubble,
-                iconUnselected: Icons.chat_bubble_outline,
-                label: 'المحادثات',
-                isSelected: _selectedIndex == 1,
-                onTap: () => setState(() => _selectedIndex = 1),
-                badgeCount: 2,
-              ),
-              FloatingItem(
-                index: 2,
-                iconSelected: Icons.people,
-                iconUnselected: Icons.people_outline,
-                label: 'جهات الاتصال',
-                isSelected: _selectedIndex == 2,
-                onTap: () => setState(() => _selectedIndex = 2),
-                hasAlert: true,
-              ),
-              FloatingItem(
-                index: 3,
-                iconSelected: Icons.settings,
-                iconUnselected: Icons.settings_outlined,
-                label: 'Settings',
-                isSelected: _selectedIndex == 3,
-                onTap: () => setState(() => _selectedIndex = 3),
-              ),
-            ],
-          ),
-        ),
       ),
 
       body: SafeArea(

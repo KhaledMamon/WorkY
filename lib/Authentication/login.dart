@@ -1,11 +1,8 @@
-// import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:work_y/Authentication/forgot_password.dart';
 import 'package:work_y/Authentication/signup.dart';
-import 'package:work_y/home.dart';
-// import 'package:login/forgot_password.dart';
-// import 'package:login/signup.dart';
+import 'package:work_y/Home/home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

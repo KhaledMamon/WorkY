@@ -82,7 +82,7 @@ class _EditPageState extends State<EditPage> {
                 label: 'المحادثات',
                 isSelected: _selectedIndex == 2,
                 onTap: () => setState(() => _selectedIndex = 2),
-                badgeCount: 2,
+                
               ),
 
               FloatingItem(

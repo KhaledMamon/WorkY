@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SectionTitle extends StatelessWidget {
@@ -14,7 +13,7 @@ class SectionTitle extends StatelessWidget {
           width: 4,
           height: 22,
           decoration: BoxDecoration(
-            color: const Color(0xFF4F46E5),
+            color: const Color(0xFF3244E6),
             borderRadius: BorderRadius.circular(4),
           ),
         ),

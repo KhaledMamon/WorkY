@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:work_y/Authentication/forgot_password.dart';
 import 'package:work_y/Authentication/login.dart';
-import 'package:work_y/home.dart';
+import 'package:work_y/Home/home.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});

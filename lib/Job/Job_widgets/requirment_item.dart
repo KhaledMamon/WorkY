@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class RequirementItem extends StatelessWidget {
@@ -21,7 +20,7 @@ class RequirementItem extends StatelessWidget {
               color: const Color(0xFFEEF2FF),
               shape: BoxShape.circle,
             ),
-            child: const Icon(Icons.check, size: 12, color: Color(0xFF4F46E5)),
+            child: const Icon(Icons.check, size: 12, color: Color(0xFF3244E6)),
           ),
           const SizedBox(width: 12),
           Expanded(

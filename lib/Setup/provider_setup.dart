@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:work_y/Home/home.dart';
 import 'package:work_y/Setup/Setup_widgets/skills.dart';
-import 'package:work_y/home.dart';
 
 class ProviderSetup extends StatefulWidget {
   const ProviderSetup({super.key});

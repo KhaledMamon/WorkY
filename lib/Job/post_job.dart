@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:work_y/Home/home.dart';
 import 'package:work_y/Job/Job_widgets/requirment_skills.dart';
 import 'package:work_y/Job/Job_widgets/suggested_skills.dart';
 import 'package:work_y/Job/Job_widgets/section_title.dart';
-import 'package:work_y/home.dart';
 
 class PostJob extends StatefulWidget {
   const PostJob({super.key});
@@ -592,35 +592,6 @@ class _PostJobState extends State<PostJob> {
         ),
       ),
 
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: currentTabIndex,
-      //   type: BottomNavigationBarType.fixed,
-      //   selectedItemColor: Color(0xFF3244E6),
-      //   unselectedItemColor: Colors.grey,
-      //   onTap: (int index) {
-      //     setState(() {
-      //       currentTabIndex = index;
-      //     });
-      //   },
-      //   items: [
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home_outlined),
-      //       label: 'Feed',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.chat_bubble_outline),
-      //       label: 'Messages',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.work_outline),
-      //       label: 'My Jobs',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person_outline),
-      //       label: 'Profile',
-      //     ),
-      //   ],
-      // ),
     );
   }
 

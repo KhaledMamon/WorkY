@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:work_y/Home/home.dart';
 import 'package:work_y/Setup/Setup_widgets/industry_button.dart';
-import 'package:work_y/home.dart';
 
 class ClientSetup extends StatefulWidget {
   const ClientSetup({super.key});
