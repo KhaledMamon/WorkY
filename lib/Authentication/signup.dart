@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:work_y/Authentication/forgot_password.dart';
 import 'package:work_y/Authentication/login.dart';
 import 'package:work_y/Home/home.dart';
 
@@ -238,11 +237,7 @@ class _SignUpState extends State<SignUp> {
                       Spacer(),
                       TextButton(
                         onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => const ForgotPassword(),
-                            ),
-                          );
+                          
                         },
                         child: Text(
                           'Forgot Password?',

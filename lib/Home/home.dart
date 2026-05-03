@@ -7,6 +7,8 @@ import 'package:work_y/Home/search.dart';
 import 'package:work_y/Job/post_job.dart';
 import 'package:work_y/Profile/profile.dart';
 import 'package:work_y/Profile/profile_widgets/floating_item.dart';
+import 'package:work_y/http.dart';
+import 'package:work_y/model.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,6 +21,16 @@ class _HomeState extends State<Home> {
   int selectedIndex = 0;
   int selectedI = 0;
   final tabs = ['ALL FEED', 'DESIGN', 'DEVELOPMENT', 'MARKETING', 'WRITING'];
+
+  late ApiService apiService;
+  late Future<HomeData> homeDataFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    apiService = ApiService();
+    homeDataFuture = apiService.fetchHomeData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,103 +71,133 @@ class _HomeState extends State<Home> {
         ],
       ),
       backgroundColor: const Color(0xFFF4F6FA),
-
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              MaterialButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const Search()),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 20,
+      body: FutureBuilder<HomeData>(
+        future: homeDataFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Error: ${snapshot.error}'),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        homeDataFuture = apiService.fetchHomeData();
+                      });
+                    },
+                    child: const Text('Retry'),
                   ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(14),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.06),
-                          blurRadius: 10,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search for professionals or tasks...',
-                        hintStyle: TextStyle(
-                          color: Color(0xFF9CA3AF),
-                          fontSize: 15,
-                        ),
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Color(0xFF9CA3AF),
-                        ),
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(vertical: 16),
-                      ),
-                    ),
-                  ),
-                ),
+                ],
               ),
+            );
+          } else if (!snapshot.hasData) {
+            return const Center(child: Text('No data available'));
+          }
 
-              SizedBox(
-                height: 40,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  itemCount: tabs.length,
-                  itemBuilder: (context, index) {
-                    final isSelected = index == selectedI;
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8),
+          final homeData = snapshot.data!;
+
+          return SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MaterialButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => const Search()),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 20,
+                      ),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: isSelected
-                              ? const Color(0xFF2563EB)
-                              : Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: TextButton(
-                          onPressed: () {
-                            setState(() {
-                              selectedI = index;
-                            });
-                          },
-                          child: Text(
-                            tabs[index],
-                            style: TextStyle(
-                              color: isSelected
-                                  ? Colors.white
-                                  : const Color(0xFF6B7280),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13,
-                              letterSpacing: 0.3,
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(14),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.06),
+                              blurRadius: 10,
+                              offset: const Offset(0, 2),
                             ),
+                          ],
+                        ),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Search for professionals or tasks...',
+                            hintStyle: TextStyle(
+                              color: Color(0xFF9CA3AF),
+                              fontSize: 15,
+                            ),
+                            prefixIcon: Icon(
+                              Icons.search,
+                              color: Color(0xFF9CA3AF),
+                            ),
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.symmetric(vertical: 16),
                           ),
                         ),
                       ),
-                    );
-                  },
-                ),
-              ),
+                    ),
+                  ),
 
-              const SizedBox(height: 24),
-              TopRecommendation(),
-              const SizedBox(height: 28),
-              PostsList(),
-              const SizedBox(height: 120),
-            ],
-          ),
-        ),
+                  SizedBox(
+                    height: 40,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      itemCount: tabs.length,
+                      itemBuilder: (context, index) {
+                        final isSelected = index == selectedI;
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: isSelected
+                                  ? const Color(0xFF2563EB)
+                                  : Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  selectedI = index;
+                                });
+                              },
+                              child: Text(
+                                tabs[index],
+                                style: TextStyle(
+                                  color: isSelected
+                                      ? Colors.white
+                                      : const Color(0xFF6B7280),
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13,
+                                  letterSpacing: 0.3,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+
+                  const SizedBox(height: 24),
+                  TopRecommendation(freelancers: homeData.freelancers),
+                  const SizedBox(height: 28),
+                  PostsList(posts: homeData.posts),
+                  const SizedBox(height: 120),
+                ],
+              ),
+            ),
+          );
+        },
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.fromLTRB(33, 10, 0, 5),

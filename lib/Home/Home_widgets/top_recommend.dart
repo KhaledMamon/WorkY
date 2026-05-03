@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:work_y/Home/Home_widgets/job_card.dart';
 import 'package:work_y/Home/search.dart';
+import 'package:work_y/model.dart';
 
 class TopRecommendation extends StatelessWidget {
-  const TopRecommendation({super.key});
+  final List<Freelancer> freelancers;
+
+  const TopRecommendation({super.key, required this.freelancers});
 
   @override
   Widget build(BuildContext context) {
@@ -46,40 +49,25 @@ class TopRecommendation extends StatelessWidget {
         const SizedBox(height: 12),
         SizedBox(
           height: 175,
-          child: ListView(
+          child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            children: [
-              JobCard(
-                icon: Icons.person,
-                iconBg: const Color(0xFFE8F0FE),
-                name: 'Sarah Jenkins',
-                role: 'UI/UX Designer',
-                rating: 4.9,
-                jobs: '1.2k+ jobs',
-                rate: '\$85/hr',
-              ),
-              const SizedBox(width: 14),
-              JobCard(
-                icon: Icons.code,
-                iconBg: const Color(0xFFEDE9FE),
-                name: 'Alex Turner',
-                role: 'Full Stack Dev',
-                rating: 5.0,
-                jobs: '800+ jobs',
-                rate: '\$95/hr',
-              ),
-              const SizedBox(width: 14),
-              JobCard(
-                icon: Icons.brush,
-                iconBg: const Color(0xFFFEF3C7),
-                name: 'Mia Lopez',
-                role: 'Graphic Designer',
-                rating: 4.8,
-                jobs: '600+ jobs',
-                rate: '\$70/hr',
-              ),
-            ],
+            itemCount: freelancers.length,
+            itemBuilder: (context, index) {
+              final freelancer = freelancers[index];
+              return Padding(
+                padding: const EdgeInsets.only(right: 14),
+                child: JobCard(
+                  icon: Icons.person,
+                  iconBg: const Color(0xFFE8F0FE),
+                  name: freelancer.name,
+                  role: freelancer.role,
+                  rating: freelancer.rating,
+                  jobs: freelancer.jobsCount,
+                  rate: '\$${freelancer.hourlyRate}/hr',
+                ),
+              );
+            },
           ),
         ),
       ],
